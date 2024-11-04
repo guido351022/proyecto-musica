@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Actualizar Usuario
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <form action="" method="post" >{% csrf_token %}
+    <br> <br> <br>
+    <h1>Actualizar un Usuario</h1><br><br><br>
+
+    <table>
+            {{form.as_table}}
+        </table> <br> <br>
+        <div class="container">
+            <button type="submit" class="btn btn-info">Actualizar Usuario</button>
+        <div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Buscar Compra
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <br> <br> <br> 
+    <form action="" method="get">
+        
+        <input type="text" name="usuario" id="usuario" placeholder="Buscar usuario">
+        <br> <br> <br>
+        <input type="submit" value="Buscar Compra" class="btn btn-outline-light">
+
+    </form>
+    <br> <br> <br>
+    {% if compra %}
+
+        {% for compra in compra %}
+        <table class="table table-hover text-center">
+                <tbody>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Álbum</th>
+                    <th scope="col">ID</th>
+                    <tr class="table-info">
+                        <td>  {{ compra.usuario.nombre }}</td>
+                        <td>  {{ compra.album.titulo }}</td>
+                        <td>  {{ compra.id }}</td>
+                <tbody>
+            </table>
+            {% endfor %}
+            
+    {% else %}
+
+        <h3>No hay datos</h3>
+    {% endif %}
+</div>
+
+{% endblock %}

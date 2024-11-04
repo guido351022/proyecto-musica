@@ -1,0 +1,43 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Buscar Usuario
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <br> <br> <br> 
+    <form action="" method="get">
+        
+        <input type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Buscar usuario">
+        <br> <br> <br>
+        <input type="submit" value="Buscar Usuario" class="btn btn-outline-light">
+
+    </form>
+    <br> <br> <br>
+    {% if usuario %}
+
+        {% for usuario in usuario %}
+        <table class="table table-hover text-center">
+                <tbody>
+                    <th scope="col">Nombre Usuario</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">DNI</th>
+                    <tr class="table-info">
+                        <td>  {{ usuario.nombre }}</td>
+                        <td>  {{ usuario.id }}</td>
+                        <td>  {{ usuario.dni }}</td>
+                <tbody>
+            </table>
+            {% endfor %}
+            
+    {% else %}
+
+        <h3>No hay datos</h3>
+    {% endif %}
+</div>
+
+{% endblock %}

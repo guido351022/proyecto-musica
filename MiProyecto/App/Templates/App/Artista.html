@@ -1,0 +1,43 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Artista
+{% endblock %}
+
+{% block codigoDinamico %}
+<div class="container">
+    <h1> Artistas </h1> <br> <br> <br>
+{% for artista in artista %}
+    <div class="container">
+        <table class="table table-hover text-center">
+            <tbody>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Genero</th>
+                <tr class="table-secondary text-center">
+                    <th> {{ artista.id }}</th>
+                    <td> {{ artista.nombre }}</td>
+                    <td> {{ artista.genero }}</td>
+            </tbody>
+        </table>
+        <div class="container">
+            <button type="button" class="btn btn-outline-primary">
+                <a href="{% url 'Crear Artista' %}">Nuevo Artista</a>
+            </button> &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-outline-light">
+                <a href="{% url 'Buscar Artista' %}">Buscar Artista</a>
+            </button> &nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-info">
+                <a href="{% url 'Actualizar Artista' artista_id=artista.id %}">Actualizar Artista</a>
+            </button> &nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-danger">
+                <a href="{% url 'Eliminar Artista' artista_id=artista.id %}">Eliminar Artista</a>
+            </button> &nbsp; &nbsp;&nbsp;
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

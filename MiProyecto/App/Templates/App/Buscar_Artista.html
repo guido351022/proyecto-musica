@@ -1,0 +1,41 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Buscar Artista
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <br> <br> <br> 
+    <form action="" method="get">
+        
+        <input type="text" name="nombre_artista" id="nombre_artista" placeholder="Buscar artista">
+        <br> <br> <br>
+        <input type="submit" value="Buscar Artista" class="btn btn-outline-light">
+
+    </form>
+    <br> <br> <br>
+    {% if artista %}
+
+        {% for artista in artista %}
+        <table class="table table-hover text-center">
+                <tbody>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">ID</th>
+                    <tr class="table-info">
+                        <td>  {{ artista.nombre }}</td>
+                        <td>  {{ artista.id }}</td>
+                <tbody>
+            </table>
+            {% endfor %}
+            
+    {% else %}
+
+        <h3>No hay datos</h3>
+    {% endif %}
+</div>
+
+{% endblock %}

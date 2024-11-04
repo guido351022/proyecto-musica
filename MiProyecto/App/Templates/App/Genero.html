@@ -1,0 +1,41 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Genero
+{% endblock %}
+
+{% block codigoDinamico %}
+<div class="container">
+    <h1> Géneros </h1> <br> <br> <br>
+{% for genero in genero %}
+    <div class="container">
+        <table class="table table-hover text-center">
+            <tbody>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <tr class="table-secondary text-center">
+                    <th> {{ genero.id }}</th>
+                    <td> {{ genero.nombre }}</td>
+            </tbody>
+        </table>
+        <div class="container">
+            <button type="button" class="btn btn-outline-primary">
+                <a href="{% url 'Crear Genero' %}">Nuevo Género</a>
+            </button> &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-outline-light">
+                <a href="{% url 'Buscar Genero' %}">Buscar Género</a>
+            </button> &nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-info">
+                <a href="{% url 'Actualizar Genero' genero_id=genero.id %}">Actualizar Género</a>
+            </button> &nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-danger">
+                <a href="{% url 'Eliminar Genero' genero_id=genero.id %}">Eliminar Género</a>
+            </button> &nbsp; &nbsp;&nbsp;
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

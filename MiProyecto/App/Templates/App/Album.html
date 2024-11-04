@@ -1,0 +1,47 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Album
+{% endblock %}
+
+{% block codigoDinamico %}
+<div class="container">
+    <h1> Album </h1> <br> <br> <br>
+{% for album in album %}
+    <div class="container">
+        <table class="table table-hover text-center">
+            <tbody>
+                <th scope="col">ID</th>
+                <th scope="col">Título</th>
+                <th scope="col">Artista</th>
+                <th scope="col">Género</th>
+                <th scope="col">Fecha de Lanzamiento</th>
+                <tr class="table-secondary text-center">
+                    <th> {{ album.id }}</th>
+                    <td> {{ album.titulo }}</td>
+                    <td> {{ album.artista }}</td>
+                    <td> {{ album.genero }}</td>
+                    <td> {{ album.fecha_lanzamiento }}</td>
+            </tbody>
+        </table>
+        <div class="container">
+            <button type="button" class="btn btn-outline-primary">
+                <a href="{% url 'Crear Album' %}">Nuevo Álbum</a>
+            </button> &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-outline-light">
+                <a href="{% url 'Buscar Album' %}">Buscar Álbum</a>
+            </button> &nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-info">
+                <a href="{% url 'Actualizar Album' album_id=album.id %}">Actualizar Álbum</a>
+            </button> &nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-danger">
+                <a href="{% url 'Eliminar Album' album_id=album.id %}">Eliminar Álbum</a>
+            </button> &nbsp; &nbsp;&nbsp;
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

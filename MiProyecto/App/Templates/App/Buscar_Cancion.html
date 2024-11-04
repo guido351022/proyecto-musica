@@ -1,0 +1,41 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Buscar Canción
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <br> <br> <br> 
+    <form action="" method="get">
+        
+        <input type="text" name="titulo_cancion" id="titulo_cancion" placeholder="Buscar canción">
+        <br> <br> <br>
+        <input type="submit" value="Buscar Canción" class="btn btn-outline-light">
+
+    </form>
+    <br> <br> <br>
+    {% if cancion %}
+
+        {% for cancion in cancione %}
+        <table class="table table-hover text-center">
+                <tbody>
+                    <th scope="col">Título Canción</th>
+                    <th scope="col">ID</th>
+                    <tr class="table-info">
+                        <td>  {{ cancion.titulo }}</td>
+                        <td>  {{ cancion.id }}</td>
+                <tbody>
+            </table>
+            {% endfor %}
+            
+    {% else %}
+
+        <h3>No hay datos</h3>
+    {% endif %}
+</div>
+
+{% endblock %}

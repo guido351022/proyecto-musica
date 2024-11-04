@@ -1,0 +1,41 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Buscar Género
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <br> <br> <br> 
+    <form action="" method="get">
+        
+        <input type="text" name="nombre_genero" id="nombre_genero" placeholder="Buscar género">
+        <br> <br> <br>
+        <input type="submit" value="Buscar Género" class="btn btn-outline-light">
+
+    </form>
+    <br> <br> <br>
+    {% if genero %}
+
+        {% for genero in genero %}
+        <table class="table table-hover text-center">
+                <tbody>
+                    <th scope="col">Nombre Género</th>
+                    <th scope="col">ID</th>
+                    <tr class="table-info">
+                        <td>  {{ genero.nombre }}</td>
+                        <td>  {{ genero.id }}</td>
+                <tbody>
+            </table>
+            {% endfor %}
+            
+    {% else %}
+
+        <h3>No hay datos</h3>
+    {% endif %}
+</div>
+
+{% endblock %}

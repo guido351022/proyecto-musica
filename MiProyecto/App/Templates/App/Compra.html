@@ -1,0 +1,43 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Compra
+{% endblock %}
+
+{% block codigoDinamico %}
+<div class="container">
+    <h1> Compras </h1> <br> <br> <br>
+{% for compra in compra %}
+    <div class="container">
+        <table class="table table-hover text-center">
+            <tbody>
+                <th scope="col">ID</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Fecha de Compra</th>
+                <tr class="table-secondary text-center">
+                    <th> {{ compra.id }}</th>
+                    <td> {{ compra.usuario }}</td>
+                    <td> {{ compra.fecha_compra }}</td>
+            </tbody>
+        </table>
+        <div class="container">
+            <button type="button" class="btn btn-outline-primary">
+                <a href="{% url 'Crear Compra' %}">Nueva Compra</a>
+            </button> &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-outline-light">
+                <a href="{% url 'Buscar Compra' %}">Buscar Compra</a>
+            </button> &nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-info">
+                <a href="{% url 'Actualizar Compra' compra_id=compra.id %}">Actualizar Compra</a>
+            </button> &nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-danger">
+                <a href="{% url 'Eliminar Compra' compra_id=compra.id %}">Eliminar Compra</a>
+            </button> &nbsp; &nbsp;&nbsp;
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

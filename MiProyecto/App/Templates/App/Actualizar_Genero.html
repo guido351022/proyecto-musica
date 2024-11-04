@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Actualizar Genero
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <form action="" method="post" >{% csrf_token %}
+    <br> <br> <br>
+    <h1>Actualizar un Genero</h1><br><br><br>
+
+    <table>
+            {{form.as_table}}
+        </table> <br> <br>
+        <div class="container">
+            <button type="submit" class="btn btn-info">Actualizar Genero</button>
+        <div>
+    </form>
+</div>
+{% endblock %}
